@@ -1,24 +1,12 @@
 <template>
-  <div>
     <router-view></router-view>
-  </div>
 </template>
 
 <script>
-import Home from "./views/Home";
-import Login from "./views/Login";
+import 'assets/css/base.css'
 export default {
-  name: 'App',
-  components: {
-    Login,
-    Home
-  }
+  name: 'App'
 }
 </script>
-
 <style>
-body{
-  margin: 0 0 0 0 ;
-  padding: 0 0 0 0;
-}
 </style>

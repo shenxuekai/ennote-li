@@ -1,7 +1,7 @@
 <template>
   <div class="column side">
     <h2>左侧栏</h2>
-    <p>菜鸟教程 - 学的不仅是技术，更是梦想！</p>
+    <p>这是左侧栏</p>
   </div>
 </template>
 
