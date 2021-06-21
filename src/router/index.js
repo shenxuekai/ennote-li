@@ -6,7 +6,7 @@ import FirstPage from "../views/blogviews/FirstPage";
 const routes = [
   {
     path: '/',
-    redirect: '/firstpage'
+    redirect: '/login'
   },
   {
     path: '/firstpage',

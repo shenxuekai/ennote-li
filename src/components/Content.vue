@@ -19,7 +19,8 @@ export default {
 </script>
 <style scoped>
 .column.middle {
-  width: 50%;
+  height: 467px;
+  width: 60%;
 }
 .column {
   float: left;

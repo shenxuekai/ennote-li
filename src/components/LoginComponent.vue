@@ -31,11 +31,18 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .loginCss{
+  height:100%;
+  width: 100%;
   text-align: center;
   background-image: url("../assets/img/loginbgi.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
   line-height: 100px;
+  margin: 0 auto;
+  padding: 0;
 }
 
 </style>

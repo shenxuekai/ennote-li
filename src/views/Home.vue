@@ -10,10 +10,10 @@
 </template>
 
 <script>
-import TopBar from "../components/TopBar";
-import SideBar from "../components/SideBar";
-import Content from "../components/Content";
-import Bottom from "../components/Bottom";
+import TopBar from "components/TopBar";
+import SideBar from "components/SideBar";
+import Content from "components/Content";
+import Bottom from "components/Bottom";
 export default {
   name: 'Home',
   components: {
@@ -27,9 +27,6 @@ export default {
 <style scoped>
 * {
   box-sizing: border-box;
-}
-body {
-  margin: 0;
 }
 /* 列后面清除浮动 */
 .row:after {
