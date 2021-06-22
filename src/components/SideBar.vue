@@ -1,6 +1,5 @@
 <template>
   <div class="column side">
-    <h2>左侧栏</h2>
     <li>选项1</li>
     <li>选项1</li>
     <li>选项1</li>
@@ -36,12 +35,10 @@ li{
   list-style-type: none;
   cursor: pointer;
   min-width: 70px;
-  height: 50px;
-  font-size: large;
-  padding-top: 20px;
-  margin: 0;
+  font-size: medium;
 }
 li:hover{
-  background-color: lightblue;
+  background-color: rgb(51, 51, 51);
+
 }
 </style>
