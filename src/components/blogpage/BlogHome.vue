@@ -2,6 +2,7 @@
   <div class="bloghome">
     <h2>my Page</h2>
     <span>标签</span>
+    <button @click="networkRequest">网络请求</button>
   </div>
 </template>
 
