@@ -4,10 +4,12 @@
 
 <script>
 import LoginComponent from "components/LoginComponent";
+import Tips from "../components/tips/Tips";
 export default {
   name: "Login",
   components:{
-    LoginComponent
+    LoginComponent,
+    Tips
   }
 }
 </script>

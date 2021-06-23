@@ -11,10 +11,10 @@ import {request} from "./network/request";
 request(
     {baseURL:"",timeout:5000},
     res=>{
-      res
+      console.log(res);
     },
     rej=>{
-
+      console.log(rej);
     }
 )
 

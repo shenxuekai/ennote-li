@@ -1,5 +1,6 @@
 <template>
-  <div class="loginCss">
+  <div class="loginCss" >
+    <tips :options="options" @close="closeTip"></tips>
     <div id="loginDiv">
       <h2><slot>登录界面</slot></h2>
       <div>
@@ -16,25 +17,42 @@
 </template>
 
 <script>
+import Tips from "./tips/Tips";
 export default {
   name: "LoginComponent",
   data() {
     return {
-      account:'',
+      account: '',
       password: '',
-      notifyObj:null
+      notifyObj: null,
+      //定义要传入子组件tips中的对象
+      options: {
+        show: true,
+        closeTime: 1000,
+        content: ''
+      }
     }
+  },
+  created() {
+    let t=this.options.closeTime / 1000
+    this.options.content='点击我，我会在'+t+'秒后消失'
+  },
+  components:{
+    Tips
   },
   methods:{
     submit(){
       //账号密码用于网络验证，，直接跳转
-      this.$router.push('/home')
+      // this.$router.push('/home');
+      //手动改变tip是否显示
+      this.options.show= !this.options.show
     },
-    // showTips(){
-    //   this.notifyObj= this.$notify(
-    //
-    //   )
-    // }
+    closeTip(){
+      setTimeout(()=>{
+        // console.log(this);
+        this.options.show=false;
+      },this.options.closeTime)
+    }
   }
 }
 </script>
@@ -44,7 +62,6 @@ export default {
   height:100%;
   width: 100%;
   text-align: center;
-  //***
   background: url("../assets/img/loginbgi.jpg") 50% no-repeat;
   background-size: cover;
   line-height: 100px;
