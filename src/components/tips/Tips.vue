@@ -5,7 +5,7 @@
     <p class="content">{{options.content}}</p>
   </div>
   <div v-else>
-    <a >tips</a>
+    <a @click="$emit('open')">tips</a>
   </div>
 </template>
 
@@ -52,5 +52,15 @@ export default {
   div{
     display: none;
   }
+}
+a{
+  position: fixed;
+  right: 10px;
+  top:10px;
+  font-size: small;
+  color: yellow;
+  line-height: normal;
+  text-decoration: underline;
+  cursor: pointer;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="loginCss" >
-    <tips :options="options" @close="closeTip"></tips>
+    <tips :options="options" @close="closeTip" @open="openTip"></tips>
     <div id="loginDiv">
       <h2><slot>登录界面</slot></h2>
       <div>
@@ -28,14 +28,14 @@ export default {
       //定义要传入子组件tips中的对象
       options: {
         show: true,
-        closeTime: 1000,
+        closeTime: 500,
         content: ''
       }
     }
   },
   created() {
     let t=this.options.closeTime / 1000
-    this.options.content='点击我，我会在'+t+'秒后消失'
+    this.options.content='点击后'+t+'秒后消失,窗口过小时隐藏'
   },
   components:{
     Tips
@@ -45,13 +45,17 @@ export default {
       //账号密码用于网络验证，，直接跳转
       // this.$router.push('/home');
       //手动改变tip是否显示
-      this.options.show= !this.options.show
+      // this.options.show= !this.options.show
+      alert("！")
     },
     closeTip(){
       setTimeout(()=>{
         // console.log(this);
         this.options.show=false;
       },this.options.closeTime)
+    },
+    openTip() {
+      this.options.show=true;
     }
   }
 }
