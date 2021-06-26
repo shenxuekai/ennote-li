@@ -46,7 +46,8 @@ export default {
       // this.$router.push('/home');
       //手动改变tip是否显示
       // this.options.show= !this.options.show
-      alert("！")
+      alert("彤彤你好.")
+      this.$router.push('/home');
     },
     closeTip(){
       setTimeout(()=>{
