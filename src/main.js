@@ -1,22 +1,23 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import store from './store/index'
 require('assets/css/base.css')
 const app = createApp(App)
-app.use(router).mount('#app')
+app.use(router,store).mount('#app')
 
 
 // 封装axios使用
-import {request} from "./network/request";
-request(
-    {baseURL:"",timeout:5000},
-    res=>{
-      console.log(res);
-    },
-    rej=>{
-      console.log(rej);
-    }
-)
+// import {request} from "./network/request";
+// request(
+//     {baseURL:"",timeout:5000},
+//     res=>{
+//       console.log(res);
+//     },
+//     rej=>{
+//       console.log(rej);
+//     }
+// )
 
 
 

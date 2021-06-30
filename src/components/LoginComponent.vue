@@ -35,7 +35,7 @@ export default {
   },
   created() {
     let t=this.options.closeTime / 1000
-    this.options.content='点击后'+t+'秒后消失,窗口过小时隐藏'
+    this.options.content='点击后'+t+'秒后消失,窗口过小时隐藏';
   },
   components:{
     Tips
@@ -46,8 +46,8 @@ export default {
       // this.$router.push('/home');
       //手动改变tip是否显示
       // this.options.show= !this.options.show
-      alert("彤彤你好.")
-      this.$router.push('/home');
+      alert(this.$store.state.counter)
+      // this.$router.push('/home');
     },
     closeTip(){
       setTimeout(()=>{
