@@ -1,5 +1,5 @@
 <template>
-    <login-component>系统登录界面</login-component>
+    <login-component></login-component>
 </template>
 
 <script>

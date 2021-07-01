@@ -4,7 +4,13 @@ import { createStore } from 'vuex'
 //2创建对象
 const store=new createStore({
   state:{
-    counter:100
+    counter:100,
+    //login相关显示
+    loginPage:{
+      title:'登陆界面',
+      loginTopRightTip:'2323',
+      loginSuccessTip:'22dfsdf'
+    }
   },
   mutations:{
     inc(s,p){

@@ -4,7 +4,7 @@ import router from './router'
 import store from './store/index'
 require('assets/css/base.css')
 const app = createApp(App)
-app.use(router,store).mount('#app')
+app.use(router).use(store).mount('#app')
 
 
 // 封装axios使用
