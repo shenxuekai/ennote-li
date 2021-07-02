@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-//使用路由懒加载
+//懒加载
 const Home= () => import('../views/Home.vue')
 const Login= () => import("../views/Login")
 const  FirstPage= ()=> import("../views/blogviews/FirstPage")

@@ -4,10 +4,10 @@
     <div id="loginDiv">
       <h2><slot>{{titleOfLogin}}</slot></h2>
       <div>
-        <input type="text" v-model="account" maxlength="12" placeholder="账号" onkeyup="value=value.replace(/[\W]/g,'')">
+        <input type="text" v-model="managerLocal.user" maxlength="12" placeholder="账号" onkeyup="value=value.replace(/[\W]/g,'')">
       </div>
       <div>
-        <input type="password" v-model="password" placeholder="密码" maxlength="12">
+        <input type="password" v-model="managerLocal.pwd" placeholder="密码" maxlength="12">
       </div>
       <div>
         <input type="submit" @click="submit" style="height: 35px;width: 60px;font-size: small" value="登录">
@@ -18,18 +18,21 @@
 
 <script>
 import Tips from "./tips/Tips";
+import {request} from "../network/request";
 export default {
   name: "LoginComponent",
   data() {
     return {
-      account: '',
-      password: '',
+      managerLocal:{
+        user:'',
+        pwd:''
+      },
       //定义要传入子组件tips中的对象
       options: {
         show: true,
         closeTime: 0,
         content: this.$store.state.loginPage.loginTopRightTip + '(单击以关闭)'
-      }
+      },
     }
   },
   computed:{
@@ -51,9 +54,28 @@ export default {
       //手动改变tip是否显示
       // this.options.show= !this.options.show
       //vuex的使用
-      if((this.$store.state.loginPage.loginSuccessTip!==null)&&(this.$store.state.loginPage.loginSuccessTip!=='')){
-        alert(this.$store.state.loginPage.loginSuccessTip)
-      }
+      // if((this.$store.state.loginPage.loginSuccessTip!==null)&&(this.$store.state.loginPage.loginSuccessTip!=='')){
+      //   alert(this.$store.state.loginPage.loginSuccessTip)
+      // }
+      request(
+          {url:"https://mobile-ms.uat.homecreditcfc.cn/mock/60d1b0ad4a9639001d427eb6/managerlist"},
+          (res)=>{
+            res=res.data;
+            const data=res.data;
+            // console.log(data[0].user);
+            // console.log(data[0].pwd);
+            for(let i=0;i<data.length;i++){
+              if(this.managerLocal.user===data[i].user&&this.managerLocal.pwd===data[i].pwd){
+                alert("登录成功，您所使用的用户名为“"+this.managerLocal.user+"”");
+                this.$router.push('/home');
+              }
+            }
+          },
+          (rej)=>{
+            console.log(rej);
+            alert("请求失败，失败信息打印在控制台")
+          }
+      );
       // this.$router.push('/home');
     },
     closeTip(){
@@ -74,7 +96,7 @@ export default {
   height:100%;
   width: 100%;
   text-align: center;
-  background: url("../assets/img/loginbgi.jpg") 50% no-repeat;
+  background-color: rgba(144,238,144,0.5);
   background-size: cover;
   //line-height: 80px;
   margin:auto;
@@ -85,14 +107,14 @@ export default {
 }
 #loginDiv{
   width: 50%;
-  height: 50%;
-  min-width: 343px;
-  min-height: 250px;
+  min-width: 280px;
+  height: 270px;
   display: flex;
   flex-direction: column;
   background-color: rgba(200,200,200,.5);
   position: relative;
-  top: 20%;
+  top: 25%;
+  border-radius: 10px 10px 10px 10px ;
 }
 input{
   width: 50%;

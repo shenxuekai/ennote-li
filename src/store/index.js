@@ -8,8 +8,8 @@ const store=new createStore({
     //login相关显示
     loginPage:{
       title:'登陆界面',
-      loginTopRightTip:'2323',
-      loginSuccessTip:'22dfsdf'
+      loginTopRightTip:'用户名admin，密码admin',
+      loginSuccessTip:''
     }
   },
   mutations:{

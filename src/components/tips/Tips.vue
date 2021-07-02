@@ -38,7 +38,7 @@ export default {
   position: fixed;
   right: 10px;
   top:10px;
-  background-color: rgba(255,255,0,0.8);
+  background-color: white;
   font-size: small;
   width: 25%;
   max-width: 300px;
@@ -59,8 +59,9 @@ a{
   right: 10px;
   top:10px;
   font-size: small;
-  color: yellow;
+  //color: lightblue;
   line-height: normal;
+  font-weight: 300;
   text-decoration: underline;
   cursor: pointer;
 }
