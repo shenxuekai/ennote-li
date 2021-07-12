@@ -13,8 +13,8 @@ const qqZone=()=> import("../views/interesting/qqZone")
 const routes = [
   {
     path: '/',
-    // redirect: '/login'
-    redirect: '/qqZoneLink'
+    redirect: '/login'
+    // redirect: '/qqZoneLink'
   },
   {
     path: '/qqZone',
@@ -59,8 +59,8 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
-router.beforeEach((to, from, next) => {
-  to.meta.title && (document.title = to.meta.title);
-  next()
-});
+// router.beforeEach((to, from, next) => {
+//   to.meta.title && (document.title = to.meta.title);
+//   next()
+// });
 export default router

