@@ -8,7 +8,7 @@ const store=new createStore({
     //login相关显示
     loginPage:{
       title:'登陆界面',
-      loginTopRightTip:'用户名admin，密码admin',
+      loginTopRightTip:'用户名admin，密码admin(单击以关闭)',
       loginSuccessTip:''
     }
   },

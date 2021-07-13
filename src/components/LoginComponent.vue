@@ -31,7 +31,7 @@ export default {
       options: {
         show: true,
         closeTime: 0,
-        content: this.$store.state.loginPage.loginTopRightTip + '(单击以关闭)'
+        content: this.$store.state.loginPage.loginTopRightTip
       },
     }
   },
@@ -49,14 +49,6 @@ export default {
   },
   methods:{
     submit(){
-      //账号密码用于网络验证，，直接跳转
-      // this.$router.push('/home');
-      //手动改变tip是否显示
-      // this.options.show= !this.options.show
-      //vuex的使用
-      // if((this.$store.state.loginPage.loginSuccessTip!==null)&&(this.$store.state.loginPage.loginSuccessTip!=='')){
-      //   alert(this.$store.state.loginPage.loginSuccessTip)
-      // }
       request(
           {url:"https://mobile-ms.uat.homecreditcfc.cn/mock/60d1b0ad4a9639001d427eb6/managerlist"},
           (res)=>{

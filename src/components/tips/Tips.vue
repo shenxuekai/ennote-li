@@ -4,9 +4,9 @@
 <!--    options.content内容为空时不展示-->
     <p class="content">{{options.content}}</p>
   </div>
-  <div v-else>
+  <span v-else>
     <a @click="$emit('open')">tips</a>
-  </div>
+  </span>
 </template>
 
 <script>
@@ -42,6 +42,7 @@ export default {
   font-size: small;
   width: 25%;
   max-width: 300px;
+  min-width: 260px;
 }
 .content{
   line-height: normal;
@@ -50,6 +51,11 @@ export default {
 }
 //窗口过小则隐藏本组件，部分浏览器可能不支持
 @media screen and (max-width: 768px) {
+  div{
+    display: none;
+  }
+}
+@media screen and (max-height: 400px) {
   div{
     display: none;
   }
