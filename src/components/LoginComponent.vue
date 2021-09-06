@@ -12,6 +12,9 @@
       <div>
         <input type="submit" @click="submit" style="height: 35px;width: 60px;font-size: small" value="登录">
       </div>
+      <div>
+        <input type="text" v-model="wantGO">
+      </div>
     </div>
   </div>
 </template>
@@ -25,7 +28,8 @@ export default {
     return {
       managerLocal:{
         user:'',
-        pwd:''
+        pwd:'',
+        wantGO:'',
       },
       //定义要传入子组件tips中的对象
       options: {
@@ -59,8 +63,14 @@ export default {
             for(let i=0;i<data.length;i++){
               if(this.managerLocal.user===data[i].user&&this.managerLocal.pwd===data[i].pwd){
                 alert("登录成功，您所使用的用户名为“"+this.managerLocal.user+"”");
-                this.$router.push('/home');
+                // this.$router.push('/home');
+                // this.$router.push('/FirstPage');
+                if(this.wantGO){
+                  this.$router.push('/'+this.wantGO);
+                }
+                else {this.$router.push('/home');}
               }
+              break;
             }
           },
           (rej)=>{
